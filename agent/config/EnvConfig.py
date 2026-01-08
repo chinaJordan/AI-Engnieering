@@ -3,7 +3,7 @@ import os
 from agent.util import log
 
 # config env
-DEEP_SEEK_KEY = "sk-642839b326e34ba19a8149815e9ec60b"
+DEEP_SEEK_KEY = "sk-642839b326e34bc19v8140915e9****"
 ENV = "dev"
 
 if not os.environ.get("DEEPSEEK_API_KEY"):
