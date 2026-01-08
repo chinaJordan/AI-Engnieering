@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问AI 智能体</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="header">AI大模型灵狐</div>
+    <div class="chat-container">
+        <!-- ✅ 对话展示区：所有轮次对话都追加在这里 -->
+        <div class="chat-content" id="chat-content"></div>
+
+        <!-- ✅ 输入区：输入+发送按钮 -->
+        <div class="chat-input">
+            <input type="text" id="msg-input" placeholder="请输入对话内容，按回车或点击发送">
+            <button id="send">发送</button>
+        </div>
+    </div>
+
+    <script>
+        // ========== 核心JS：异步提交+无刷新渲染+多轮留存 ==========
+        const chatContent = document.getElementById('chat-content'); // 对话展示区
+        const msgInput = document.getElementById('msg-input');       // 输入框
+        const sendBtn = document.getElementById('send');         // 发送按钮
+
+        // 1. 发送消息核心函数（异步请求，无刷新）
+        async function sendMsg() {
+            const userMsg = msgInput.value.trim();
+            // 校验输入不能为空
+            if (!userMsg) {
+                alert('请输入对话内容！');
+                return;
+            }
+
+            // ✅ 第一步：先把用户输入，追加到对话区（即时显示，提升体验）
+            addMsgToPage('user', userMsg);
+            // 清空输入框
+            msgInput.value = '';
+
+            try {
+                // ✅ 第二步：AJAX异步请求后端接口（核心：不刷新页面）
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }, // 声明传递JSON数据
+                    body: JSON.stringify({ msg: userMsg }) // 传递用户输入内容
+                });
+                const data = await res.json(); // 解析后端返回的JSON数据
+
+                // ✅ 第三步：把后端响应内容，追加到对话区（完成一轮对话）
+                if (data.code === 1) {
+                    addMsgToPage('bot', data.bot_msg);
+                } else {
+                    addMsgToPage('bot', `❌ ${data.msg}`);
+                }
+            } catch (err) {
+                addMsgToPage('bot', '❌ 网络异常，消息发送失败！');
+                console.error(err);
+            }
+        }
+
+        // 2. 辅助函数：将消息追加到页面（实现多轮对话留存）
+        function addMsgToPage(type, msg) {
+            // 创建单个消息DOM元素
+            const msgItem = document.createElement('div');
+            msgItem.className = `msg-item ${type}-msg`;
+            msgItem.innerHTML = `<div class="msg-text">${msg}</div>`;
+            // 追加到对话区 → 自动留存所有历史对话
+            chatContent.appendChild(msgItem);
+            // 滚动到最新消息（始终显示最后一条）
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        // 3. 绑定事件：点击发送按钮 + 按回车键发送
+        sendBtn.addEventListener('click', sendMsg);
+        msgInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') sendMsg(); // 按回车触发发送
+        });
+    </script>
+</body>
+</html>
