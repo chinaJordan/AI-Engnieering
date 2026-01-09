@@ -2174,3 +2174,1089 @@
 {
     "event": "127.0.0.1 - - [07/Jan/2026 15:48:55] \"\u001b[32mGET /favicon.ico HTTP/1.1\u001b[0m\" 302 -"
 }
+{
+    "event": "python-dotenv could not parse statement starting at line 4"
+}
+{
+    "event": "Read file content: OrderedDict({'server:': None, 'ai.model:': None}),basePath; /Users/liuguangqian/Downloads/localProject/LLmAgentProject/agent, filePath: /Users/liuguangqian/Downloads/localProject/LLmAgentProject/agent/resource/application.yaml",
+    "level": "debug",
+    "timestamp": "2026-01-08 17:14:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server:, value: None",
+    "level": "info",
+    "timestamp": "2026-01-08 17:14:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model:, value: None",
+    "level": "info",
+    "timestamp": "2026-01-08 17:14:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "readcontent size: 0",
+    "level": "info",
+    "timestamp": "2026-01-08 17:52:51",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product']}",
+    "level": "info",
+    "timestamp": "2026-01-08 17:53:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "readcontent size: 0",
+    "level": "info",
+    "timestamp": "2026-01-08 17:53:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product']}",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "readcontent size: 10",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.port, value: 5000",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.ip, value: 127.0.0.1",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.type, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.name, value: deepseek-chat",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.apikey, value: SK2328493489afiafaffjdj",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.url, value: https://api.deepseek.com",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.0, value: dev",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.1, value: test",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.2, value: beat",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.3, value: product",
+    "level": "info",
+    "timestamp": "2026-01-08 17:59:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product'], 'model': {'info': [{'type': 'deepseek', 'provider': 'deepseek', 'url': 'https://api.deepseek.com', 'apikey': 'sk-1234354djskfjksk'}, {'type': 'openai', 'provider': 'openAi', 'url': 'https://openai.api.com', 'apikey': 'sk-api1234hjfdhsjfhjshhgj'}]}}",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "readcontent size: 18",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.port, value: 5000",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.ip, value: 127.0.0.1",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.type, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.name, value: deepseek-chat",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.apikey, value: SK2328493489afiafaffjdj",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.url, value: https://api.deepseek.com",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.0, value: dev",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.1, value: test",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.2, value: beat",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.3, value: product",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.type, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.provider, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.url, value: https://api.deepseek.com",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.apikey, value: sk-1234354djskfjksk",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.type, value: openai",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.provider, value: openAi",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.url, value: https://openai.api.com",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.apikey, value: sk-api1234hjfdhsjfhjshhgj",
+    "level": "info",
+    "timestamp": "2026-01-08 20:40:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Can't find file: resource/application.yaml in current find path: /Users/liuguangqian/Downloads/localProject/LLmAgentProject/agent/util/resource/application.yaml !",
+    "level": "error",
+    "timestamp": "2026-01-09 12:01:21",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Parents: <PosixPath.parents>, root: /",
+    "level": "info",
+    "timestamp": "2026-01-09 12:05:09",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Parents: /Users/liuguangqian/Downloads/localProject/LLmAgentProject/agent, root: /",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product'], 'model': {'info': [{'type': 'deepseek', 'provider': 'deepseek', 'url': 'https://api.deepseek.com', 'apikey': 'sk-1234354djskfjksk'}, {'type': 'openai', 'provider': 'openAi', 'url': 'https://openai.api.com', 'apikey': 'sk-api1234hjfdhsjfhjshhgj'}]}}",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "readcontent size: 18",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.port, value: 5000",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: server.ip, value: 127.0.0.1",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.type, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.name, value: deepseek-chat",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.apikey, value: SK2328493489afiafaffjdj",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: ai.model.url, value: https://api.deepseek.com",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.0, value: dev",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.1, value: test",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.2, value: beat",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: support.3, value: product",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.type, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.provider, value: deepseek",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.url, value: https://api.deepseek.com",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.0.apikey, value: sk-1234354djskfjksk",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.type, value: openai",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.provider, value: openAi",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.url, value: https://openai.api.com",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "K: model.info.1.apikey, value: sk-api1234hjfdhsjfhjshhgj",
+    "level": "info",
+    "timestamp": "2026-01-09 12:06:13",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config file start!",
+    "level": "info",
+    "timestamp": "2026-01-09 12:16:27",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "profile not config, use default config!",
+    "level": "info",
+    "timestamp": "2026-01-09 12:16:27",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Can't find config file : .EnvConfig_None",
+    "level": "error",
+    "timestamp": "2026-01-09 12:16:27",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product'], 'model': {'info': [{'type': 'deepseek', 'provider': 'deepseek', 'url': 'https://api.deepseek.com', 'apikey': 'sk-1234354djskfjksk'}, {'type': 'openai', 'provider': 'openAi', 'url': 'https://openai.api.com', 'apikey': 'sk-api1234hjfdhsjfhjshhgj'}]}}",
+    "level": "info",
+    "timestamp": "2026-01-09 12:16:27",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config file start!",
+    "level": "info",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "profile not config, use default config!",
+    "level": "info",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Can't find config file : .EnvConfig_None",
+    "level": "error",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1'}, 'ai.model': {'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com'}, 'support': ['dev', 'test', 'beat', 'product'], 'model': {'info': [{'type': 'deepseek', 'provider': 'deepseek', 'url': 'https://api.deepseek.com', 'apikey': 'sk-1234354djskfjksk'}, {'type': 'openai', 'provider': 'openAi', 'url': 'https://openai.api.com', 'apikey': 'sk-api1234hjfdhsjfhjshhgj'}]}}",
+    "level": "info",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "ServerConfigDto: server=Server(ip='127.0.0.1', port=5000, version='V1.0.0', name='AI-Application')",
+    "level": "info",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "timestamp": "2026-01-09 13:51:14",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "timestamp": "2026-01-09 13:51:14",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "timestamp": "2026-01-09 13:51:14",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 13:51:14",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "timestamp": "2026-01-09 13:57:09",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "timestamp": "2026-01-09 13:57:09",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "timestamp": "2026-01-09 13:57:09",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: None,  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='SK2328493489afiafaffjdj')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "info",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "timestamp": "2026-01-09 14:08:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "timestamp": "2026-01-09 14:08:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "timestamp": "2026-01-09 14:08:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 14:08:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 88,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: None,  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='SK2328493489afiafaffjdj')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "info",
+    "filename": "EnvConfig.py",
+    "lineno": 19,
+    "func_name": "initConfig",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml, Exception: 1 validation error for PgDBConfigDTO\npostgresql.port\n  Input should be a valid string [type=string_type, input_value=5432, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.12/v/string_type",
+    "level": "error",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 88,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: None,  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='SK2328493489afiafaffjdj')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "info",
+    "filename": "EnvConfig.py",
+    "lineno": 19,
+    "func_name": "initConfig",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:19:31",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:19:31",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'apikey': 'SK2328493489afiafaffjdj', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:19:31",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: postgresql=PgSqlConfig(user='admin', password='admin', host='127.0.0.1', port=5432, dbname='postgres', connect_timeout=20, sslmode='require'),  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='SK2328493489afiafaffjdj')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "info",
+    "filename": "EnvConfig.py",
+    "lineno": 19,
+    "func_name": "initConfig",
+    "timestamp": "2026-01-09 14:19:31",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:31:50",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:31:50",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:31:50",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:32:52",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:32:52",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:32:52",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:33:17",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:33:17",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:33:17",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:34:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:34:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:34:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: postgresql=PgSqlConfig(user='admin', password='admin', host='127.0.0.1', port=5432, dbname='postgres', connect_timeout=20, sslmode='require'),  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='sk-12324u934934898439')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "debug",
+    "filename": "EnvConfig.py",
+    "lineno": 23,
+    "func_name": "initConfig",
+    "timestamp": "2026-01-09 14:34:02",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 38,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:34:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:34:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'require'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 43,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:34:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Current load profile name : resource/application.yaml, Ready to load !",
+    "level": "info",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 36,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:56:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'disable'}}",
+    "level": "info",
+    "filename": "FileReadUtil.py",
+    "lineno": 127,
+    "func_name": "loadYamlFile",
+    "timestamp": "2026-01-09 14:56:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load yaml content: {'server': {'port': 5000, 'ip': '127.0.0.1', 'version': 'v1.0.1', 'name': 'AI-Application'}, 'ai': [{'type': 'deepseek', 'name': 'deepseek-chat', 'url': 'https://api.deepseek.com', 'beta_url': 'https://api.deepseek.com/beta'}], 'postgresql': {'user': 'admin', 'password': 'admin', 'host': '127.0.0.1', 'port': 5432, 'dbname': 'postgres', 'connect_timeout': 20, 'sslmode': 'disable'}}",
+    "level": "debug",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 41,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:56:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config success! pgConfig: postgresql=PgSqlConfig(user='admin', password='admin', host='127.0.0.1', port=5432, dbname='postgres', connect_timeout=20, sslmode='disable'),  aiConfig: ai=[ModelInfo(type='deepseek', name='deepseek-chat', url='https://api.deepseek.com', beta_url='https://api.deepseek.com/beta', apikey='sk-12324u934934898439')], serverConfig: server=Server(ip='127.0.0.1', port=5000, version='v1.0.1', name='AI-Application')",
+    "level": "debug",
+    "filename": "EnvConfig.py",
+    "lineno": 23,
+    "func_name": "initConfig",
+    "timestamp": "2026-01-09 14:56:30",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on all addresses (0.0.0.0)\n * Running on http://127.0.0.1:5000\n * Running on http://192.168.1.215:5000"
+}
+{
+    "event": "\u001b[33mPress CTRL+C to quit\u001b[0m"
+}
+{
+    "event": "127.0.0.1 - - [09/Jan/2026 14:56:40] \"GET /login HTTP/1.1\" 200 -"
+}
+{
+    "event": "127.0.0.1 - - [09/Jan/2026 14:56:41] \"GET /static/image/background2.png HTTP/1.1\" 200 -"
+}
+{
+    "event": "127.0.0.1 - - [09/Jan/2026 14:56:46] \"POST /login HTTP/1.1\" 200 -"
+}
+{
+    "event": "127.0.0.1 - - [09/Jan/2026 14:56:47] \"\u001b[36mGET /static/image/background2.png HTTP/1.1\u001b[0m\" 304 -"
+}
+{
+    "event": "127.0.0.1 - - [09/Jan/2026 14:57:32] \"\u001b[32mPOST /login HTTP/1.1\u001b[0m\" 302 -"
+}

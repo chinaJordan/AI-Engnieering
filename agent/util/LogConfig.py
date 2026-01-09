@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 
 import structlog
 from concurrent_log_handler import ConcurrentRotatingFileHandler
+from structlog.processors import CallsiteParameterAdder, CallsiteParameter
 
 # ====================== 【1. 环境常量定义 - 核心配置区】 ======================
 # ✅ 环境切换：通过系统环境变量 PYTHON_ENV 控制，默认开发环境
@@ -129,6 +130,17 @@ def _get_structlog_processors():
         structlog.processors.StackInfoRenderer(),
         structlog.processors.format_exc_info,
         structlog.processors.UnicodeDecoder(),  # 全局解码，防止中文乱码
+        # ============== 核心新增：添加文件名等调用站点信息 ==============
+        CallsiteParameterAdder(
+            parameters=[
+                CallsiteParameter.FILENAME,  # 输出当前文件名（含后缀，如 main.py）
+                # 可选：额外添加其他调用信息（按需开启）
+                CallsiteParameter.LINENO,    # 输出行号
+                CallsiteParameter.FUNC_NAME # 输出当前函数名
+                # CallsiteParameter.MODULE,    # 输出模块名（不含后缀，如 main）
+            ]
+        ),
+
         # 时间戳：开发环境易读格式，生产环境毫秒级精准格式
         structlog.processors.TimeStamper(
             fmt="%Y-%m-%d %H:%M:%S" if ENV == "dev" else "%Y-%m-%d %H:%M:%S.%f",

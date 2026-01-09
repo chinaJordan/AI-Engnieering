@@ -1,0 +1,52 @@
+
+# web config DEV
+server:
+  port: 5000
+  ip: 127.0.0.1
+  version: v1.0.1
+  name: "AI-Application"
+
+
+
+# AI config
+ai:
+  - type: deepseek    # 模型provider 名字， 必传
+    # 模型名字，必传
+    name: deepseek-chat
+    # 模型使用的访问token 必传, 如果不在这里配置，可以通过环境变量配置，配置方式：变量名： type名字 + "_API_KEY", 建议 type 名字大写
+#    apikey: SK2328493489afiafaffjdj
+    # 模型访问地址，当模型不是用deepsee， 必传
+    url: https://api.deepseek.com
+    # 模型的测试地址， 选传，如果用到 beta功能再传
+    beta_url: https://api.deepseek.com/beta
+
+#  - type: deepseek    # 模型provider 名字， 必传
+#    # 模型名字，必传
+#    name: deepseek-reasoner
+#    # 模型使用的访问token 必传, 如果不在这里配置，可以通过环境变量配置，配置方式：变量名： type名字 + "_API_KEY", 建议 type 名字大写
+#    apikey: SK2328493489afiafaffjdj
+#    # 模型访问地址，当模型不是用deepsee， 必传
+#    url: https://api.deepseek.com
+#    # 模型的测试地址， 选传，如果用到 beta功能再传
+#    beta_url: https://api.deepseek.com/beta
+
+postgresql:
+  # 必传
+  user: "admin"
+  # 必传
+  password: "admin"
+  # 必传
+  host: 127.0.0.1
+  # 必传，默认端口号 5432
+  port: 5432
+  dbname: "postgres"
+  # 选传，连接超时时间， 默认20s
+  connect_timeout: 20
+  # 选传，  Literal["disable", "allow", "prefer", "require", "verify-ca", "verify-full"]
+  sslmode: "disable"
+
+
+
+
+
+

@@ -1,30 +1,23 @@
-import importlib
 import os
-from agent.util import log
+from util import log
+from config import getPgDbConfig, getServerConfig, getAiConfig
 
-# config env
-DEEP_SEEK_KEY = "sk-642839b326e34bc19v8140915e9****"
-ENV = "dev"
+
+API_KEY = "_API_KEY"
 
 if not os.environ.get("DEEPSEEK_API_KEY"):
-    os.environ.setdefault("DEEPSEEK_API_KEY", DEEP_SEEK_KEY)
+    os.environ.setdefault("DEEPSEEK_API_KEY", "sk-12324u934934898439")
+
 
 def initConfig():
-    log.info("Load config file start!")
-    env = os.getenv("profile")
-    # 赋值全局变量
-    global ENV
-    ENV = env
-    config = ".EnvConfig"
-    if not env:
-        log.info(f"profile not config, use default config!")
-        # config = f".EnvConfig_{env}"
-    try:
-        config = f".EnvConfig_{env}"
-        active_config = importlib.import_module(config,package="config")
-        log.info(f"Load config file : {config} success!")
-        raise Exception("Env value is null")
-    except ImportError:
-        log.error(f"Can't find config file : {config}")
+    pgDbConfig = getPgDbConfig()
+    aiModelConfig = getAiConfig()
+    for aimodelinfo in aiModelConfig.ai:
+        if not aimodelinfo.apikey:
+            apikey = os.environ.get(aimodelinfo.type.upper() + API_KEY)
+            if not apikey:
+                raise Exception(f"Ai model apiKey must config! Model name: {aimodelinfo.name} !")
+            aimodelinfo.apikey = apikey
 
-initConfig()
+    serverConfig = getServerConfig()
+    log.debug(f"Load config success! pgConfig: {pgDbConfig},  aiConfig: {aiModelConfig}, serverConfig: {serverConfig}")

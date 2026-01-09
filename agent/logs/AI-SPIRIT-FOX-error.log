@@ -457,3 +457,73 @@
     "version": "v1.0.0",
     "env": "dev"
 }
+{
+    "event": "Can't find file: resource/application.yaml in current find path: /Users/liuguangqian/Downloads/localProject/LLmAgentProject/agent/util/resource/application.yaml !",
+    "level": "error",
+    "timestamp": "2026-01-09 12:01:21",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Can't find config file : .EnvConfig_None",
+    "level": "error",
+    "timestamp": "2026-01-09 12:16:27",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Can't find config file : .EnvConfig_None",
+    "level": "error",
+    "timestamp": "2026-01-09 12:19:58",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 13:51:14",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 14:05:00",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "timestamp": "2026-01-09 14:08:15",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml",
+    "level": "error",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 88,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:17:08",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}
+{
+    "event": "Load config from file fail! please check config is Correct ! current config file: resource/application.yaml, Exception: 1 validation error for PgDBConfigDTO\npostgresql.port\n  Input should be a valid string [type=string_type, input_value=5432, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.12/v/string_type",
+    "level": "error",
+    "filename": "LoadPropertiesIntoEnv.py",
+    "lineno": 88,
+    "func_name": "loadProperties",
+    "timestamp": "2026-01-09 14:18:53",
+    "project": "AI-SPIRIT-FOX",
+    "version": "v1.0.0",
+    "env": "dev"
+}

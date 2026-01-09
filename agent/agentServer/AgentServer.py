@@ -2,11 +2,9 @@ import os
 import re
 from typing import Any, List
 
-# os.environ.setdefault("profile", "dev")
 from langchain.agents import create_agent
 
 # from agentServer.AgentStateMiddleware import CustomMiddleware
-from agent.config import global_config
 from langchain_deepseek import ChatDeepSeek
 
 '''
@@ -22,7 +20,7 @@ from langchain_deepseek import ChatDeepSeek
             
 '''
 
-print(f"Current ENV : {global_config.ENV}")
+print(f"Current ENV : {os.environ.get('profile')}")
 
 # 静态模型示例
 # agent = create_agent("deepseek-chat")
@@ -286,6 +284,4 @@ if __name__ == "__main__":
         resp = inputMsg(userMessage)
         resp = split_str_by_length("".join(resp),50)
         print(f"AI respoonse: {resp}")
-
-
     pass

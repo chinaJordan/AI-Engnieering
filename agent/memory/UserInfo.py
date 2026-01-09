@@ -111,7 +111,6 @@ class UserInfo(BaseEntity):
         cursor = None
         dictData = None
         try:
-
             dbconnect = getDbConnect(None)
             cursor = dbconnect.cursor()
 

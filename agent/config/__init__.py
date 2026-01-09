@@ -1,12 +1,18 @@
-from .EnvConfig import initConfig
-from .EnvConfig import *
 
+from .dto import PgDBConfigDTO as PgDBConfig, PgSqlConfig, ServerConfigDTO, AIModelConfigDTO, ModelInfo
+from .LoadPropertiesIntoEnv import getServerConfig, getPgDbConfig, getAiConfig
+from .EnvConfig import initConfig
+
+# 初始化配置
 initConfig()
 
-
-class GlobalConfig:
-    DEEP_SEEK_KEY = DEEP_SEEK_KEY
-    ENV = ENV
-
-
-global_config = GlobalConfig()
+__all__ = [
+    "PgDBConfig",
+    "PgSqlConfig",
+    "ServerConfigDTO",
+    "AIModelConfigDTO",
+    "ModelInfo",
+    "getServerConfig",
+    "getPgDbConfig",
+    "getAiConfig"
+]

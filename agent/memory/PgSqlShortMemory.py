@@ -1,10 +1,12 @@
 from langgraph.checkpoint.postgres import PostgresSaver
 import psycopg
+from agent.config import getPgDbConfig
 
 DB_URL = "postgresql://admin:admin@localhost:5432/postgres?sslmode=disable"
 
 print(f"Psycopg: {psycopg.__version__};  File: {psycopg.__file__}")
 
+pgdbconfig = getPgDbConfig().postgresql
 
 def getCheckpointer() -> PostgresSaver:
     with PostgresSaver.from_conn_string(DB_URL) as checkponiter:
@@ -15,8 +17,11 @@ def getCheckpointer() -> PostgresSaver:
 
 
 def getDbConnect(url: str | None):
+    connect = None
     if not url:
-        connect = psycopg.connect(conninfo=DB_URL)
+        if not pgdbconfig:
+            connect = psycopg.connect(conninfo=DB_URL)
+        connect = psycopg.connect(**pgdbconfig.model_dump())
     else:
         connect = psycopg.connect(conninfo=url)
     connect.autocimmit = False
