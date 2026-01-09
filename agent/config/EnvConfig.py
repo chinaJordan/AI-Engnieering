@@ -1,12 +1,12 @@
 import os
-from util import log
-from config import getPgDbConfig, getServerConfig, getAiConfig
+from agent.util import log
+from agent.config import getPgDbConfig, getServerConfig, getAiConfig
 
 
 API_KEY = "_API_KEY"
 
 if not os.environ.get("DEEPSEEK_API_KEY"):
-    os.environ.setdefault("DEEPSEEK_API_KEY", "sk-12324u934934898439")
+    os.environ.setdefault("DEEPSEEK_API_KEY", "sk-12423jkdjfkjdjgfk343")
 
 
 def initConfig():

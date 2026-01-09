@@ -6,7 +6,7 @@ from typing import Any
 from dotenv import dotenv_values
 import yaml
 
-from util import log
+from agent.util import log
 
 
 # from agent.config import ServerConfigDTO

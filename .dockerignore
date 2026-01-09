@@ -1,0 +1,30 @@
+# 排除Git相关文件
+.git/
+.gitignore
+
+# 排除Python编译缓存和依赖缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+pip-wheel-metadata/
+
+# 排除日志和临时文件
+agent/logs
+logs/
+*.log
+tmp/
+temp/
+
+# 排除Docker相关文件（避免循环复制）
+Dockerfile
+.dockerignore
+
+# 排除其他无关文件（如编辑器配置、测试报告等）
+out/
+.vscode/
+.idea/
+tests/
+*.md

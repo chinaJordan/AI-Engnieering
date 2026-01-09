@@ -2,6 +2,8 @@ import datetime
 
 from flask import Blueprint, url_for,render_template,request,jsonify,session
 from agent.agentServer.AgentServer import inputMsg
+from agent.util import log
+
 
 # app = Flask(__name__)
 chat_bp = Blueprint("chat",__name__)
@@ -15,7 +17,7 @@ def submit():
     if request.method == "POST":
         user = request.form.get("username")
         phone = request.form.get("phone")
-        print(f"Server side receive: user: {user}, phone: {phone}")
+        log.info(f"Server side receive: user: {user}, phone: {phone}")
     else:
         user = "default"
         phone = "default"
@@ -24,10 +26,9 @@ def submit():
 @chat_bp.route("/index/<username>", methods=["GET", "POST"])
 def index(username: str):
     # return "this is first Page! %s" % escape(username)
-    print(f"username: {username}")
+    log.info(f"username: {username}")
     # ,username=username, phone="*"
     return render_template("welcome.html")
-    # name=username,
 
 
 @chat_bp.route("/chat/welcome")

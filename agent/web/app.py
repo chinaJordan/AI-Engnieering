@@ -1,9 +1,9 @@
 from datetime import timedelta
 
 from flask import Flask, url_for, request,redirect,session
-# from agent.web import all_bluprints
-from Login import login_bp
-from ChatServer import chat_bp
+from agent.web.Login import login_bp
+from agent.web.ChatServer import chat_bp
+from agent.util import  log
 
 all_bluprints = [login_bp, chat_bp]
 app = Flask(__name__)
@@ -55,11 +55,11 @@ def check_login_status():
     # 2. 判断当前请求是否在白名单内 → 是则直接放行
     current_path = request.path  # 当前请求路径
     current_endpoint = request.endpoint  # 当前请求端点
-    print(f"Current path: {current_path}, Current endpoint: {current_endpoint}")
+    log.info(f"Current path: {current_path}, Current endpoint: {current_endpoint}")
     if current_path in white_list or current_endpoint in white_list:
         return None  # 放行，继续执行原请求
 
-    print(f"Current seesion: {session.get('username')}")
+    # print(f"Current seesion: {session.get('username')}")
     # 3. ✅ 校验登录态：未登录 → 跳转到登录页
     if not session.get("username"):
         return redirect(url_for("login.login", next=current_path))
@@ -88,9 +88,8 @@ for bluprint in all_bluprints:
 
 print("=== 当前已注册的路由端点 ===")
 for rule in app.url_map.iter_rules():
-    print(f"端点名：{rule.endpoint} → 路由地址：{rule.rule}")
+    log.info(f"端点名：{rule.endpoint} → 路由地址：{rule.rule}")
 if __name__ == "__main__":
-    # print(f" index: {url_for('login.index')}")
-    app.run(port=5000,host="0.0.0.0")
+    app.run(port=5000, host="0.0.0.0")
 
 

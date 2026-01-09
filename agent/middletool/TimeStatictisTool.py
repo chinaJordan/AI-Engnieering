@@ -1,5 +1,5 @@
 from langchain.agents.middleware import before_model, after_model
-from util.TimeStatictisUtil import TimeUtil,global_instance_map
+from agent.util.TimeStatictisUtil import TimeUtil,global_instance_map
 
 
 

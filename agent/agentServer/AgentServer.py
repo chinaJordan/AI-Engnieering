@@ -3,6 +3,7 @@ import re
 from typing import Any, List
 
 from langchain.agents import create_agent
+from agent.config import EnvConfig
 
 # from agentServer.AgentStateMiddleware import CustomMiddleware
 from langchain_deepseek import ChatDeepSeek
@@ -47,7 +48,7 @@ from langchain.messages import AIMessageChunk, ToolMessage, AIMessage
 from langgraph.types import Command
 from langgraph.checkpoint.memory import InMemorySaver
 
-from agent.middletool.TimeStatictisUtil import before_model, after_model
+from agent.middletool.TimeStatictisTool import before_model, after_model
 from agent.middletool.TheDataTools import saveData, getData
 from agent.middletool.MessageContextProcess import trimMessage
 

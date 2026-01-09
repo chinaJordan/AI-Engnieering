@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify,request, render_template, flash, redirect, url_for, session
 
-from util import RSA_PUBLIC_KEY, rsa_decrypt, rsa_key, gen_salt, pwd_hash
+from agent.util import RSA_PUBLIC_KEY, rsa_decrypt, rsa_key, gen_salt, pwd_hash, log
 from agent.memory import UserInfo
+
 
 
 login_bp = Blueprint("login", __name__, "/account")
@@ -45,7 +46,7 @@ def register():
     try:
         plain_pwd = rsa_decrypt(cipher_pwd)
     except Exception as e:
-        print(f"Password descrypt fail! Exception: {e}")
+        log.error(f"Password descrypt fail! Exception: {e}")
         flash(f"密码解密失败：{str(e)}")
         return render_template("register.html", rsa_public_key=RSA_PUBLIC_KEY)
 
@@ -57,7 +58,7 @@ def register():
     userinfo.email = email if email else None
     userinfo.salt = salt
     result = userinfo.insertToDb([userinfo])
-    print(f"Insert to data result: {result}")
+    log.debug(f"Insert to data result: {result}")
 
     flash("注册成功！请登录")
     return redirect(url_for("login.login"))
@@ -81,7 +82,7 @@ def login():
     userInfo = UserInfo(user_name=username, phone=username, email=username)
     userInfos = userInfo.queryFromDb(userInfo, queryCondition=" or ")
     if not userInfos:
-        print(f"用户：{username} 未查询到！请检查用户名是否正确！")
+        log.info(f"用户：{username} 未查询到！请检查用户名是否正确！")
         flash(f"用户名： {username} 不存在, 请检查用户名是否正确或者注册新用户！")
         return render_template("login.html", rsa_public_key=RSA_PUBLIC_KEY)
 
@@ -95,7 +96,7 @@ def login():
             return render_template("login.html", rsa_public_key=RSA_PUBLIC_KEY)
     except Exception as e:
         flash(f"登录失败：{str(e)}")
-        print(f"Exception: {e.__traceback__}")
+        log.error(f"Exception: {e}")
         return render_template("login.html", rsa_public_key=RSA_PUBLIC_KEY)
 
     # 3. 登录成功：写入session维护登录态，跳转到首页/
@@ -115,10 +116,10 @@ def logout():
 def logoff():
     try:
         user_id = session["user_id"]
-        print(f"Current ready delete user id : {user_id}")
+        log.info(f"Current ready delete user id : {user_id}")
         deleteUser = UserInfo(id=user_id)
         result = deleteUser.deleteFromDb(deleteUser)
-        print(f"Delete user {user_id} Success! Result: {result}")
+        log.info(f"Delete user {user_id} Success! Result: {result}")
         session.pop("username", None)
         session.pop("user_id", None)
         flash("已成功注销用户")
@@ -127,7 +128,7 @@ def logoff():
             "msg": "success"
         })
     except Exception as e:
-        print(f"Logoff user fail! Exception: {e}")
+        log.error(f"Logoff user fail! Exception: {e}")
         return jsonify({
             "success": False,
             "msg": "服务异常，请稍后再试！"

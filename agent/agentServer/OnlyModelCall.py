@@ -2,7 +2,6 @@
 import asyncio
 import time
 
-from config import global_config
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import PromptTemplate
 from langchain_core.rate_limiters import  InMemoryRateLimiter

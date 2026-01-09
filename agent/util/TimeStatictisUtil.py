@@ -1,7 +1,5 @@
-import os
 import threading
 import time
-import weakref
 
 # 弱引用map
 # global_instance_map = weakref.WeakValueDictionary()
