@@ -1,5 +1,5 @@
 
-from .dto import PgDBConfigDTO as PgDBConfig, PgSqlConfig, ServerConfigDTO, AIModelConfigDTO, ModelInfo
+from .dto import PgDBConfigDTO as PgDBConfig, PgSqlConfig, ServerConfigDTO, AIModelConfigDTO, ModelInfo, CommonConfig
 from .LoadPropertiesIntoEnv import getServerConfig, getPgDbConfig, getAiConfig
 from .EnvConfig import initConfig
 
@@ -11,6 +11,7 @@ __all__ = [
     "PgSqlConfig",
     "ServerConfigDTO",
     "AIModelConfigDTO",
+    "CommonConfig",
     "ModelInfo",
     "getServerConfig",
     "getPgDbConfig",

@@ -3,6 +3,7 @@ from typing import Any
 
 
 class CustomeStats(AgentState):
+    use_model: str
     otherInfo: dict
 
 

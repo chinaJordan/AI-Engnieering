@@ -5,8 +5,9 @@ from agent.config import getPgDbConfig, getServerConfig, getAiConfig
 
 API_KEY = "_API_KEY"
 
+# 模拟 key:  sk-12423jkdjfkjdjgfk343
 if not os.environ.get("DEEPSEEK_API_KEY"):
-    os.environ.setdefault("DEEPSEEK_API_KEY", "sk-12423jkdjfkjdjgfk343")
+    os.environ.setdefault("DEEPSEEK_API_KEY", "sk-642839b326e34ba19a8149815e9ec60b")
 
 
 def initConfig():

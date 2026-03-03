@@ -2,7 +2,9 @@ from flask import Blueprint, jsonify,request, render_template, flash, redirect, 
 
 from agent.util import RSA_PUBLIC_KEY, rsa_decrypt, rsa_key, gen_salt, pwd_hash, log
 from agent.memory import UserInfo
+from agent.config.constant import ConfigConstantKey
 
+from agent.util import deleteKey
 
 
 login_bp = Blueprint("login", __name__, "/account")
@@ -16,7 +18,8 @@ def index():
     """首页：登录成功后跳转地址，未登录则重定向到登录页"""
     if "username" not in session:  # 校验登录态
         return redirect(url_for("login.login"))
-    return render_template("application.html", username=session["username"], user_id=session["user_id"])
+    return render_template("applicationCopy.html", username=session[ConfigConstantKey.USERNAME],
+                           user_id=session[ConfigConstantKey.USER_ID])
 
 @login_bp.route("/register", methods=["GET", "POST"])
 def register():
@@ -100,28 +103,31 @@ def login():
         return render_template("login.html", rsa_public_key=RSA_PUBLIC_KEY)
 
     # 3. 登录成功：写入session维护登录态，跳转到首页/
-    session["username"] = username
-    session["user_id"] = userInfos[0]["id"]
+    session[ConfigConstantKey.USERNAME] = username
+    session[ConfigConstantKey.USER_ID] = userInfos[0]["id"]
     return redirect(url_for("login.index"))
 
 @login_bp.route("/logout")
 def logout():
     """退出登录：清除session"""
-    session.pop("username", None)
-    session.pop("user_id", None)
+    user_id = session.get(ConfigConstantKey.USER_ID)
+    session.pop(ConfigConstantKey.USERNAME, None)
+    session.pop(ConfigConstantKey.USER_ID, None)
+    deleteKey(user_id)
     flash("已成功退出登录")
     return redirect(url_for("login.login"))
 
 @login_bp.route("/logoff", methods=["post"])
 def logoff():
     try:
-        user_id = session["user_id"]
+        user_id = session[ConfigConstantKey.USER_ID]
         log.info(f"Current ready delete user id : {user_id}")
         deleteUser = UserInfo(id=user_id)
         result = deleteUser.deleteFromDb(deleteUser)
         log.info(f"Delete user {user_id} Success! Result: {result}")
-        session.pop("username", None)
-        session.pop("user_id", None)
+        session.pop(ConfigConstantKey.USERNAME, None)
+        session.pop(ConfigConstantKey.USER_ID, None)
+        deleteKey(user_id)
         flash("已成功注销用户")
         return jsonify({
             "success": True,

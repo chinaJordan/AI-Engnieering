@@ -362,3 +362,152 @@
     </script>
 </body>
 </html>
+
+
+
+// ✅ 重构：嵌入式操作框处理函数（优化样式和交互）
+function handleInteractiveOperation(reviewRequest) {
+// 1. 强制展示操作框（双重保障：样式类 + 直接设置display）
+const interactivePanel = document.getElementById('interactivePanel');
+if (!interactivePanel) {
+console.error('找不到interactivePanel元素');
+return;
+}
+
+// 移除所有行内样式，改用CSS类控制
+interactivePanel.removeAttribute('style');
+interactivePanel.classList.add('active');
+
+// interactivePanel.style.display = 'block';
+// interactivePanel.style.opacity = '1';
+
+console.log('交互框最终样式：', getComputedStyle(interactivePanel)); // 调试用
+console.log('交互框是否在可视区：', isElementInViewport(interactivePanel));
+console.log('display:', interactivePanel.style.display);
+console.log('opacity:', interactivePanel.style.opacity);
+
+// 2. 设置面板标题
+panelTitle.textContent = reviewRequest?.actionName ?? "请确认或者编辑以下内容：";
+
+// 3. 展示content内容（格式化显示）
+let contentText = '';
+if (typeof reviewRequest.content === 'object' && reviewRequest.content !== null) {
+// 格式化对象为易读的字符串
+contentText = JSON.stringify(reviewRequest.content, null, 2);
+} else {
+contentText = reviewRequest.content || '无内容';
+}
+contentPreview.textContent = contentText;
+originalContent = contentText; // 保存原始内容
+
+// 4. 清空原有操作区域，动态生成控件
+operationArea.innerHTML = '';
+
+// 5. 判断actions是否包含edit
+const hasEditAction = reviewRequest.actions && reviewRequest.actions.includes('edit');
+
+if (hasEditAction) {
+// 生成编辑框
+const editInput = document.createElement('textarea');
+editInput.className = 'edit-input';
+// 填充content字段值（如果是对象则格式化）
+editInput.value = contentText;
+operationArea.appendChild(editInput);
+
+// ✅ 修复：恢复编辑框input事件，同步内容到userResult
+editInput.addEventListener('input', () => {
+try {
+userResult = JSON.parse(editInput.value);
+} catch (e) {
+userResult = editInput.value; // 解析失败则直接取字符串
+}
+});
+
+// 绑定点击事件：点击编辑框弹出放大窗口
+editInput.addEventListener('click', () => {
+editModalInput.value = editInput.value;
+editModal.style.display = 'flex'; // 弹窗用flex布局展示
+});
+
+// 初始化结果
+userResult = reviewRequest.content || '';
+
+} else {
+// 生成单选按钮（确认/取消）
+const radioGroup = document.createElement('div');
+radioGroup.className = 'radio-group';
+
+// 确认选项（默认选中）
+const confirmRadio = document.createElement('div');
+confirmRadio.className = 'radio-item';
+confirmRadio.innerHTML = `
+<input type="radio" name="interactive-radio" id="confirm" value="确认" checked>
+<label for="confirm">确认</label>
+`;
+
+// 取消选项
+const cancelRadio = document.createElement('div');
+cancelRadio.className = 'radio-item';
+cancelRadio.innerHTML = `
+<input type="radio" name="interactive-radio" id="cancel" value="取消">
+<label for="cancel">取消</label>
+`;
+
+radioGroup.appendChild(confirmRadio);
+radioGroup.appendChild(cancelRadio);
+operationArea.appendChild(radioGroup);
+
+// 初始化结果为确认
+userResult = '确认';
+
+// 绑定单选按钮变更事件
+const radioInputs = radioGroup.querySelectorAll('input[type="radio"]');
+radioInputs.forEach(input => {
+input.addEventListener('change', () => {
+userResult = input.value;
+});
+});
+}
+
+// 6. 添加操作按钮
+const panelBtns = document.createElement('div');
+panelBtns.className = 'panel-btns';
+
+// 确认按钮
+const confirmBtn = document.createElement('button');
+confirmBtn.className = 'panel-btn confirm-btn';
+confirmBtn.innerHTML = '<i class="fas fa-check"></i> 提交';
+confirmBtn.addEventListener('click', () => {
+// 隐藏操作框
+interactivePanel.classList.remove('active');
+interactivePanel.style.display = 'none';
+// 将用户操作结果提交到后端
+sendMsg(userResult);
+});
+
+// 取消按钮
+const cancelBtn = document.createElement('button');
+cancelBtn.className = 'panel-btn cancel-btn';
+cancelBtn.innerHTML = '<i class="fas fa-times"></i> 取消';
+cancelBtn.addEventListener('click', () => {
+// 隐藏操作框，清空当前review数据
+interactivePanel.classList.remove('active');
+interactivePanel.style.display = 'none';
+currentReviewData = {};
+});
+
+panelBtns.appendChild(cancelBtn);
+panelBtns.appendChild(confirmBtn);
+operationArea.appendChild(panelBtns);
+}
+
+// ========== 辅助函数：检查元素是否在可视区（调试用） ==========
+function isElementInViewport(el) {
+const rect = el.getBoundingClientRect();
+return (
+rect.top >= 0 &&
+rect.left >= 0 &&
+rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+);
+}

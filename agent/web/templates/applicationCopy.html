@@ -35,6 +35,11 @@
             cursor: pointer;
             display: flex;align-items: center;justify-content: center;
             border: 2px solid #f5f7fa;
+            transition: all 0.2s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #409eff;
+            transform: scale(1.05);
         }
         .toggle-btn i {color: #fff;font-size: 16px;}
 
@@ -53,6 +58,7 @@
             display: flex;align-items: center;justify-content: center;
             font-size: 32px;
             overflow: hidden;
+            box-shadow: 0 0 15px rgba(64, 158, 255, 0.5);
         }
         .username {font-size: 18px;font-weight: bold;margin-bottom: 5px;}
         .user-desc {font-size: 12px;color: #999;}
@@ -66,9 +72,12 @@
             display: flex;align-items: center;
             padding: 0 15px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
         }
-        .menu-item:hover {background-color: #333;}
+        .menu-item:hover {
+            background-color: #333;
+            transform: translateX(5px);
+        }
         .menu-item i {font-size: 20px;margin-right: 15px;width: 20px;text-align: center;}
         .menu-item a {
             color: #fff;
@@ -106,6 +115,16 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eaecef;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-header::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background-color: #409eff;
+            border-radius: 2px;
         }
 
         /* AI对话展示框（核心） */
@@ -114,19 +133,27 @@
             background-color: #ffffff;
             border-radius: 12px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             overflow-y: auto;
             line-height: 1.6;
+            position: relative;
+            // 新增 2026-03-03
+            padding-bottom: 20px; /* 底部留出空间 */
+            //padding-right: 45%; /* 右侧留出交互框的宽度，避免消息被遮挡 */
+            //overflow-clip-margin: 0px; /* 取消裁剪边距（关键） */
         }
         /* 消息样式区分：用户消息居右，AI消息居左 */
         .msg-item {margin-bottom: 20px;max-width: 80%;}
-        .user-msg {text-align: right;float: right;clear: both;}
+        .user-msg {text-align: left;float: right;clear: both;}
         .ai-msg {text-align: left;float: left;clear: both;}
         .msg-content {
             padding: 12px 18px;
             border-radius: 18px;
             display: inline-block;
+            /* ✅ 新增这一行 → 自动识别\n换行符，实现换行 */
+            white-space: pre-wrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
         .user-msg .msg-content {
             background-color: #409eff;
@@ -139,6 +166,250 @@
             border-bottom-left-radius: 4px;
         }
         .chat-container::after {content: "";display: block;clear: both;}
+
+        /* ========== 优化：嵌入式操作框样式（右侧半宽） ========== */
+        .interactive-panel {
+              position: absolute !important;
+              /* 初始位置由JS计算，这里只设基础样式 */
+              width: 400px !important;
+              max-height: 300px !important; /* 限制最大高度，超出后滚动 */
+              overflow-y: auto !important; /* 内容超出时显示滚动条 */
+              z-index: 999 !important; /* 确保在消息之上 */
+              background: #ffffff !important;
+              border: 1px solid #e5e7eb !important;
+              border-radius: 8px !important;
+              padding: 16px !important;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+              display: none !important; /* 默认隐藏 */
+              opacity: 0 !important;
+              transition: all 0.3s ease !important;
+
+            /* // 关键：absolute定位，以chat-container为基准
+              position: absolute !important;
+              top: 20px !important;
+              right: 20px !important; // 相对于chat-container的右侧，而非页面
+              width: 40% !important; // 不超过chat-container的padding-right
+              max-width: 500px !important;
+              z-index: 999 !important; //  高于内部消息
+              background: #fff !important;
+              border: 1px solid #e5e7eb !important;
+              border-radius: 8px !important;
+              padding: 16px !important;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+              display: none !important; // 默认隐藏，JS控制显示
+              opacity: 0 !important;
+              transition: opacity 0.2s ease !important;
+              */
+        }
+        /* ✅ 新增：展示时的激活样式 */
+        .interactive-panel.active {
+            display: block !important;
+            opacity: 1 !important;
+        }
+        .interactive-panel:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+        .panel-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .panel-title::before {
+            content: "";
+            width: 3px;
+            height: 18px;
+            background-color: #409eff;
+            border-radius: 1.5px;
+        }
+        .content-preview {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #e5e7eb;
+            color: #374151;
+        }
+        .operation-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* ========== 优化：编辑框样式（点击放大） ========== */
+        .edit-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            min-height: 100px;
+            resize: none;
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+        .edit-input:focus {
+            outline: none;
+            border-color: #409eff;
+            box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+        }
+        /* 编辑框放大弹窗 */
+        .edit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000; /* ✅ 修复：提升弹窗层级 */
+            padding: 20px;
+        }
+        .edit-modal-content {
+            background: #fff;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .edit-modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .edit-modal-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            resize: none;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .edit-modal-input:focus {
+            outline: none;
+            border-color: #409eff;
+            box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+        }
+        .edit-modal-btns {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        /* ========== 优化：单选按钮样式 ========== */
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .radio-item input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .radio-item input[type="radio"]:checked {
+            border-color: #409eff;
+        }
+        .radio-item input[type="radio"]:checked::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #409eff;
+            border-radius: 50%;
+        }
+        .radio-item label {
+            font-size: 14px;
+            color: #374151;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .radio-item:hover label {
+            color: #409eff;
+        }
+
+        /* ========== 优化：按钮通用样式 ========== */
+        .panel-btn, .edit-modal-btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .confirm-btn {
+            background-color: #409eff;
+            color: #fff;
+        }
+        .confirm-btn:hover {
+            background-color: #337ecc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+        }
+        .cancel-btn {
+            background-color: #f9fafb;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+        .cancel-btn:hover {
+            background-color: #f3f4f6;
+            color: #4b5563;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .panel-btns {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f3f4f6;
+        }
 
         /* 多行输入框 + 发送按钮区域 */
         .input-container {
@@ -158,12 +429,14 @@
             max-height: 200px;
             overflow-y: auto;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s ease;
         }
-        #chat-input:focus {border-color: #409eff;}
+        #chat-input:focus {
+            border-color: #409eff;
+            box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+        }
         #send-btn {
             flex: 0.2;
-<!--            margin-top: 15px;-->
             width: 120px;
             height: 45px;
             background-color: #409eff;
@@ -172,18 +445,38 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color 0.2s;
+            font-weight: 500;
+            transition: all 0.2s ease;
             align-self: flex-start;
-            /* ✅ 核心替换：用transform实现精准上移，替代margin-top */
-            transform: translateY(15px); /* 上移20px，负值=上移，正值=下移 */
+            transform: translateY(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
-        #send-btn:hover {background-color: #337ecc;}
+        #send-btn:hover {
+            background-color: #337ecc;
+            transform: translateY(15px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+        }
+        #send-btn i {
+            font-size: 16px;
+        }
 
-        /* 滚动条美化（可选） */
+        /* 滚动条美化（全局） */
         ::-webkit-scrollbar {width: 6px;height: 6px;}
         ::-webkit-scrollbar-track {background: #f1f1f1;border-radius: 3px;}
         ::-webkit-scrollbar-thumb {background: #c1c1c1;border-radius: 3px;}
-        ::-webkit-scrollbar-thumb:hover {background: #a8a8a8;}
+        ::-webkit-scrollbar-thumb:hover {background: #409eff;}
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .interactive-panel, .edit-modal-content {
+            animation: fadeIn 0.3s ease forwards;
+        }
     </style>
     <!-- 引入图标库（无需下载，直接用） -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -230,111 +523,444 @@
                 👋 你好 {{ username }}！我是你的AI助手，有什么问题都可以问我哦~
             </div>
         </div>
+
+        <!-- ========== 优化：嵌入式操作框（右侧半宽） ========== -->
+        <div class="interactive-panel" id="interactivePanel">
+            <div class="panel-title" id="panelTitle">请确认或者编辑以下内容：</div>
+            <div class="content-preview" id="contentPreview">内容预览区域</div>
+            <div class="operation-area" id="operationArea">
+                <!-- 动态生成操作控件（编辑框/单选按钮） -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 新增：编辑框放大弹窗 ========== -->
+    <div class="edit-modal" id="editModal">
+        <div class="edit-modal-content">
+            <div class="edit-modal-title">编辑内容</div>
+            <textarea class="edit-modal-input" id="editModalInput"></textarea>
+            <div class="edit-modal-btns">
+                <button class="panel-btn cancel-btn" id="editCancelBtn">
+                    <i class="fas fa-times"></i> 取消
+                </button>
+                <button class="panel-btn confirm-btn" id="editConfirmBtn">
+                    <i class="fas fa-check"></i> 确认
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- 对话输入框 + 发送按钮 -->
     <div class="input-container">
         <textarea id="chat-input" placeholder="请输入你的问题，按回车或点击发送"></textarea>
-        <button id="send-btn">发送</button>
+        <button id="send-btn">
+            <i class="fas fa-paper-plane"></i> 发送
+        </button>
     </div>
 </div>
 
 <script>
+    // ========== 全局变量提前注入（解决Jinja2嵌套风险） ==========
+    const GLOBAL_USERNAME = '{{ username | tojson }}'; // 安全转义用户名
+    const LOGOUT_URL = '{{ url_for('login.logout') }}';
+    // 新增：存储当前的reviewRequest数据、原始内容、用户操作结果（提升作用域到全局）
+    let currentReviewData = {};
+    let originalContent = '';
+    let userResult = ''; // ✅ 修复：提升为全局变量，解决作用域问题
 
-        // ========== 全局变量提前注入（解决Jinja2嵌套风险） ==========
-        const GLOBAL_USERNAME = "{{ username | tojson }}"; // 安全转义用户名
-        const LOGOUT_URL = "{{ url_for('login.logout') }}";
+    // ========== 1. 左侧菜单栏折叠/展开功能 ==========
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const toggleIcon = toggleBtn.querySelector('i');
 
-        // ========== 1. 左侧菜单栏折叠/展开功能 ==========
-        const sidebar = document.getElementById('sidebar');
-        const toggleBtn = document.getElementById('toggleBtn');
-        const toggleIcon = toggleBtn.querySelector('i');
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapse');
+        // 切换按钮图标
+        if (sidebar.classList.contains('collapse')) {
+            toggleIcon.className = 'fas fa-chevron-right';
+        } else {
+            toggleIcon.className = 'fas fa-chevron-left';
+        }
+    });
 
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('collapse');
-            // 切换按钮图标
-            if (sidebar.classList.contains('collapse')) {
-                toggleIcon.className = 'fas fa-chevron-right';
-            } else {
-                toggleIcon.className = 'fas fa-chevron-left';
-            }
-        });
+    // ========== 2. AI对话核心功能（发送消息+展示） ==========
+    const chatContainer = document.getElementById('chatContainer');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
 
-        // ========== 2. AI对话核心功能（发送消息+展示） ==========
-        const chatContainer = document.getElementById('chatContainer');
-        const chatInput = document.getElementById('chat-input');
-        const sendBtn = document.getElementById('send-btn');
+    const interactivePanel = document.getElementById('interactivePanel');
+    const panelTitle = document.getElementById('panelTitle');
+    const contentPreview = document.getElementById('contentPreview');
+    const operationArea = document.getElementById('operationArea');
+    // 编辑弹窗相关元素
+    const editModal = document.getElementById('editModal');
+    const editModalInput = document.getElementById('editModalInput');
+    const editConfirmBtn = document.getElementById('editConfirmBtn');
+    const editCancelBtn = document.getElementById('editCancelBtn');
 
-        // 发送消息函数
-        async function sendMsg() {
+    // 发送消息函数
+    async function sendMsg(interactiveData = null) {
+        // 判断是初始发送还是交互式二次提交
+        let submitData = {};
+        const isInteractive = !!interactiveData;
+
+        // 判断是 edit 模式还是单选模式
+        let isEdit = currentReviewData.actions && currentReviewData.actions.includes('edit');
+        if (isInteractive) {
+            // 交互式提交：组装包含选择结果、content、ID、actions的JSON数据
+            submitData = {
+                msg: {
+                    choice: interactiveData, // 用户选择/编辑的结果
+                    actionName: currentReviewData.actionName || '',
+                    content: isEdit ? interactiveData : currentReviewData.content || {},
+                    id: currentReviewData.id || '',
+                    actions: currentReviewData.actions || [],
+                    doAction: interactiveData === '取消' ? 'reject' : 'approve'
+                },
+                username: GLOBAL_USERNAME,
+                is_interactive: true
+            };
+        } else {
+            // 普通发送：原有逻辑
             const content = chatInput.value.trim();
             if (!content) return; // 空内容不发送
-
-            // 1. 添加用户消息到对话框
             addMsgToPage('user', content);
-
-            // 2. 清空输入框
             chatInput.value = '';
-            // 3. 滚动到底部，始终显示最新消息
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+            submitData = {
+                msg: content,
+                username: GLOBAL_USERNAME,
+                is_interactive: false
+            };
+        }
 
+        // 滚动到底部，始终显示最新消息
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        try {
+            // ✅ 第二步：AJAX异步请求后端接口（核心：不刷新页面）
+            const res = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }, // 声明传递JSON数据
+                body: JSON.stringify(submitData) // 传递组装后的提交数据
+            });
+
+            if (!res.ok) throw new Error(`接口请求失败：${res.status}`);
+            const data = await res.json(); // 解析后端返回的JSON数据
+            console.log("Response data: ", data)
+
+            // ✅ 修复：恢复后端原始拼写 reviewRequest（如果后端是正确拼写，改为reviewRequest）
+            let reviewRequestObj = {};
             try {
-                // ✅ 第二步：AJAX异步请求后端接口（核心：不刷新页面）
-                const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }, // 声明传递JSON数据
-                    body: JSON.stringify({ msg: content, username: GLOBAL_USERNAME }) // 传递用户输入内容
-                });
-
-                if (!res.ok) throw new Error(`接口请求失败：${res.status}`);
-                const data = await res.json(); // 解析后端返回的JSON数据
-
-                // ✅ 第三步：把后端响应内容，追加到对话区（完成一轮对话）
-                if (data.code === 200) {
-                    addMsgToPage('bot', data.bot_msg);
-                } else {
-                    addMsgToPage('bot', `❌ ${data.msg || '请求失败，请重试！'}`);
-                }
+                // ✅ 修复：兼容后端可能的字段名错误（reviewRequest/reviewReqeust）
+                const reviewDataStr = data.reviewRequest || data.reviewReqeust || '{}';
+                reviewRequestObj = JSON.parse(reviewDataStr);
             } catch (err) {
-                addMsgToPage('bot', '❌ 网络异常，消息发送失败！');
-                console.error(err);
-            } finally {
+                console.error("解析reviewRequest失败：", err);
+                reviewRequestObj = {};
+            }
+            console.log("After resolve reviewData: ", reviewRequestObj)
+
+            // ✅ 第三步：处理接口响应
+            if (data.code === 200) {
+                // 添加AI回复到对话区
+                addMsgToPage('bot', data.bot_msg);
+
+                // ✅ 修复：增强交互式操作框的展示判断逻辑
+                const isNeedInteractive = Boolean(data.interactive) ||
+                                          (Object.keys(reviewRequestObj).length > 0 &&
+                                          (reviewRequestObj.actions || reviewRequestObj.content));
+
+                if (isNeedInteractive) {
+                    console.log("Enter new Logic! 触发交互框展示")
+                    // 存储当前review数据，用于后续提交
+                    currentReviewData = reviewRequestObj;
+                    // 强制触发操作框展示（双重保障）
+                    handleInteractiveOperation(reviewRequestObj);
+                } else {
+                    // 不需要交互：隐藏操作框
+                    interactivePanel.classList.remove('active');
+                    interactivePanel.style.display = 'none';
+                    currentReviewData = {};
+                }
+            } else {
+                addMsgToPage('bot', `❌ ${data.msg || '请求失败，请重试！'}`);
+                interactivePanel.classList.remove('active');
+                interactivePanel.style.display = 'none';
+                currentReviewData = {};
+            }
+        } catch (err) {
+            addMsgToPage('bot', '❌ 网络异常，消息发送失败！');
+            console.error(err);
+            interactivePanel.classList.remove('active');
+            interactivePanel.style.display = 'none';
+            currentReviewData = {};
+        } finally {
             // 无论成败，都滚动到底部
             chatContainer.scrollTop = chatContainer.scrollHeight;
-            }
+        }
+    }
+
+    // ✅ 精准定位到AI回复消息下方的交互框
+    function handleInteractiveOperation(reviewRequest) {
+        // 1. 先找到目标AI回复消息（最后一条AI消息）
+        const aiMessages = document.querySelectorAll('.msg-item.ai-msg');
+        const targetAiMsg = aiMessages[aiMessages.length - 1]; // 取最后一条AI回复
+        if (!targetAiMsg) {
+            console.error('找不到AI回复消息');
+            return;
         }
 
-        // ✅ 修复BUG2：完善消息渲染函数，支持用户/AI两种消息类型
-        function addMsgToPage(type, msg) {
-            // 转义HTML特殊字符，防止XSS注入攻击
-            const safeMsg = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            // 根据type渲染不同样式的消息
-            const msgHtml = type === 'user'
-                ? `<div class="msg-item user-msg"><div class="msg-content">${safeMsg}</div></div>`
-                : `<div class="msg-item ai-msg"><div class="msg-content">${safeMsg}</div></div>`;
-            chatContainer.innerHTML += msgHtml;
+        // 2. 获取目标消息的位置信息
+        const msgRect = targetAiMsg.getBoundingClientRect();
+        const chatContainer = document.getElementById('chatContainer');
+        const containerRect = chatContainer.getBoundingClientRect();
+
+        // 3. 重新获取并重置交互框
+        let interactivePanel = document.getElementById('interactivePanel');
+        if (!interactivePanel) {
+            console.error('找不到interactivePanel');
+            return;
+        }
+        interactivePanel.removeAttribute('style');
+        interactivePanel.classList.add('active');
+
+        // 4. 计算交互框的位置（在AI消息右下方）
+        // 相对于chat-container的绝对定位
+        const top = msgRect.bottom - containerRect.top + 10; // 消息下方10px
+        const left = msgRect.left - containerRect.left + 20; // 消息左侧20px（可调整）
+
+        // 应用定位样式
+        interactivePanel.style.top = `${top}px`;
+        interactivePanel.style.left = `${left}px`;
+        interactivePanel.style.width = '400px';
+        interactivePanel.style.maxHeight = '300px';
+        interactivePanel.style.overflowY = 'auto';
+        interactivePanel.style.zIndex = '999';
+
+        // 5. 设置面板标题
+        const panelTitle = interactivePanel.querySelector('#panelTitle');
+        if (panelTitle) {
+            panelTitle.textContent = reviewRequest?.actionName ?? "请确认或者编辑以下内容：";
         }
 
-        // 按钮点击发送
-        sendBtn.addEventListener('click', sendMsg);
-        // 回车发送（优化：shift+回车换行，纯回车发送，兼容所有浏览器）
-        chatInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                if (e.shiftKey) return; // shift+回车，允许换行
-                e.preventDefault(); // 阻止默认换行行为
-                sendMsg(); // 执行发送
-            }
+        // 6. 展示content内容（格式化显示）
+        const contentPreview = interactivePanel.querySelector('#contentPreview');
+        let contentText = '';
+        if (typeof reviewRequest.content === 'object' && reviewRequest.content !== null) {
+            contentText = JSON.stringify(reviewRequest.content, null, 2);
+        } else {
+            contentText = reviewRequest.content || '无内容';
+        }
+        if (contentPreview) {
+            contentPreview.textContent = contentText;
+        }
+        originalContent = contentText;
+
+        // 7. 清空并生成操作区域
+        const operationArea = interactivePanel.querySelector('#operationArea');
+        if (!operationArea) {
+            console.error('找不到operationArea');
+            return;
+        }
+        operationArea.innerHTML = '';
+
+        const hasEditAction = reviewRequest.actions && reviewRequest.actions.includes('edit');
+
+        if (hasEditAction) {
+            // 生成编辑框
+            const editInput = document.createElement('textarea');
+            editInput.className = 'edit-input';
+            editInput.style.cssText = `
+                width: 100%; padding: 12px 15px; border: 1px solid #d1d5db; border-radius: 8px;
+                min-height: 100px; resize: none; font-size: 14px; color: #1f2937; line-height: 1.6;
+            `;
+            editInput.value = contentText;
+            operationArea.appendChild(editInput);
+
+            // 同步内容到userResult
+            editInput.addEventListener('input', () => {
+                try {
+                    userResult = JSON.parse(editInput.value);
+                } catch (e) {
+                    userResult = editInput.value;
+                }
+            });
+
+            // 绑定点击事件：弹出放大编辑窗
+            editInput.addEventListener('click', () => {
+                editModalInput.value = editInput.value;
+                editModal.style.display = 'flex';
+                editModal.style.zIndex = '10000';
+            });
+
+            userResult = reviewRequest.content || '';
+
+        } else {
+            // 生成单选按钮（确认/取消）
+            const radioGroup = document.createElement('div');
+            radioGroup.className = 'radio-group';
+            radioGroup.style.cssText = `
+                display: flex; gap: 25px; margin: 10px 0; padding: 10px;
+                background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;
+            `;
+
+            const confirmRadio = document.createElement('div');
+            confirmRadio.className = 'radio-item';
+            confirmRadio.innerHTML = `
+                <input type="radio" name="interactive-radio" id="confirm" value="确认" checked>
+                <label for="confirm">确认</label>
+            `;
+
+            const cancelRadio = document.createElement('div');
+            cancelRadio.className = 'radio-item';
+            cancelRadio.innerHTML = `
+                <input type="radio" name="interactive-radio" id="cancel" value="取消">
+                <label for="cancel">取消</label>
+            `;
+
+            radioGroup.appendChild(confirmRadio);
+            radioGroup.appendChild(cancelRadio);
+            operationArea.appendChild(radioGroup);
+
+            userResult = '确认';
+
+            // 绑定单选事件
+            const radioInputs = radioGroup.querySelectorAll('input[type="radio"]');
+            radioInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    userResult = input.value;
+                });
+            });
+        }
+
+        // 8. 添加确认/取消按钮（确保显示）
+        const panelBtns = document.createElement('div');
+        panelBtns.className = 'panel-btns';
+        panelBtns.style.cssText = `
+            display: flex; justify-content: flex-end; gap: 15px; margin-top: 15px;
+            padding-top: 10px; border-top: 1px solid #f3f4f6;
+        `;
+
+        // 取消按钮
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'panel-btn cancel-btn';
+        cancelBtn.innerHTML = '<i class="fas fa-times"></i> 取消';
+        cancelBtn.addEventListener('click', () => {
+            interactivePanel.classList.remove('active');
+            interactivePanel.style.display = 'none';
+            currentReviewData = {};
         });
 
-        // ========== 3. 注销账号确认功能 ==========
-        function cancelAccount() {
-            if (confirm('⚠️ 警告：注销账号后，你的所有数据将永久删除，且无法恢复！是否确认注销？')) {
-                alert('✅ 账号注销成功！即将退出系统...');
-                window.location.href = LOGOUT_URL;
-                // 生产环境补充：调用后端注销接口
-                // fetch('/api/cancel-account', {method: 'POST'}).then(res => res.json());
-            }
+        // 确认按钮
+        const confirmBtn = document.createElement('button');
+        confirmBtn.className = 'panel-btn confirm-btn';
+        confirmBtn.innerHTML = '<i class="fas fa-check"></i> 确认';
+        confirmBtn.addEventListener('click', () => {
+            interactivePanel.classList.remove('active');
+            interactivePanel.style.display = 'none';
+            sendMsg(userResult);
+        });
+
+        panelBtns.appendChild(cancelBtn);
+        panelBtns.appendChild(confirmBtn);
+        operationArea.appendChild(panelBtns);
+
+        // 调试：确认位置
+        console.log('交互框位置：', interactivePanel.getBoundingClientRect());
+        console.log('目标AI消息位置：', msgRect);
+    }
+
+    // ========== 编辑弹窗确认/取消逻辑 ==========
+    // 确认编辑
+    editConfirmBtn.addEventListener('click', () => {
+        const newContent = editModalInput.value;
+        // 更新编辑框内容和预览区
+        const editInput = document.querySelector('.edit-input');
+        if (editInput) {
+            editInput.value = newContent;
+            contentPreview.textContent = newContent;
+            // 更新用户结果
+            userResult = newContent;
+            // 更新原始内容为新内容
+            originalContent = newContent;
         }
-    </script>
+        // 关闭弹窗
+        editModal.style.display = 'none';
+    });
+
+    // 取消编辑
+    editCancelBtn.addEventListener('click', () => {
+        // 恢复为原始内容
+        const editInput = document.querySelector('.edit-input');
+        if (editInput) {
+            editInput.value = originalContent;
+            contentPreview.textContent = originalContent;
+            // 恢复userResult为原始值
+            userResult = originalContent;
+        }
+        // 关闭弹窗
+        editModal.style.display = 'none';
+    });
+
+    // 点击弹窗外层关闭弹窗
+    editModal.addEventListener('click', (e) => {
+        if (e.target === editModal) {
+            editCancelBtn.click();
+        }
+    });
+
+    // ✅ 修复BUG2：完善消息渲染函数，支持用户/AI两种消息类型
+    function addMsgToPage(type, msg) {
+        // 转义HTML特殊字符，防止XSS注入攻击
+        const safeMsg = msg.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        // 根据type渲染不同样式的消息
+        const msgHtml = type === 'user'
+            ? `<div class="msg-item user-msg"><div class="msg-content">${safeMsg}</div></div>`
+            : `<div class="msg-item ai-msg"><div class="msg-content">${safeMsg}</div></div>`;
+        chatContainer.innerHTML += msgHtml;
+    }
+
+    // 按钮点击发送
+    sendBtn.addEventListener('click', sendMsg);
+    // 回车发送（优化：shift+回车换行，纯回车发送，兼容所有浏览器）
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            if (e.shiftKey) return; // shift+回车，允许换行
+            e.preventDefault(); // 阻止默认换行行为
+            sendMsg(); // 执行发送
+        }
+    });
+
+    // ========== 3. 注销账号确认功能 ==========
+    async function cancelAccount() {
+        if (!confirm('⚠️ 警告：注销账号后，你的所有数据将永久删除，且无法恢复！是否确认注销？')) {
+            return;
+        }
+        try {
+            // 生产环境补充：调用后端注销接口
+            const res = await fetch('/logoff', {method: 'POST'});
+            const data = await res.json();
+            if (!res.ok) {
+                throw new Error('注销接口请求失败，请稍后重试');
+            } else {
+                // ✅ 业务成功：后端返回code=200/成功标识 → 跳转登录页
+                if (res.code === 200 || data.success) {
+                    alert('✅ 账号注销成功！即将退出系统...');
+                    // 关键1：清空前端sessionStorage/localStorage（如有），避免残留
+                    sessionStorage.clear();
+                    localStorage.clear();
+                    // 关键2：跳转登录页（替换为你的实际登录页地址）
+                    window.location.href = '{{url_for('login.login')}}';
+                } else {
+                    // ❌ 业务失败：后端返回失败提示（如账号异常、未登录）
+                    alert(`❌ 注销失败：${data.msg || '未知错误'}`);
+                }
+            }
+        } catch (err) {
+            console.error("注销失败", err);
+            alert('❌ 注销失败，请检查网络或稍后重试'); // 修复拼写错误 alter → alert
+        }
+    }
+</script>
 </body>
 </html>

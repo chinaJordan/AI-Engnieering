@@ -3,7 +3,7 @@ import os
 from typing import Any
 from agent.util import loadYamlFile, readPropertyFile
 
-from agent.config import AIModelConfigDTO, PgDBConfig, ServerConfigDTO
+from agent.config import AIModelConfigDTO, PgDBConfig, ServerConfigDTO, CommonConfig
 
 DEFAULT_PROFILE_CONFIG = "resource/application"
 
@@ -15,6 +15,8 @@ PROPERTIES_SUFFIX = ".properties"
 SERVER_KEY = "server"
 AI_KEY = "ai"
 PG_DB_KEY = "postgresql"
+# 通用配置变量名
+COMMON_CONFIG = "commonConfig"
 
 
 #  存储当前加载到环境的配置
@@ -64,6 +66,10 @@ def loadProperties(filetype=".yaml"):
                 raise Exception("Postgresql config can't be null!")
             CURRENT_CONTEXT_CONFIG.setdefault(PG_DB_KEY, pgdbConfig)
 
+            common_config = CommonConfig.model_validate(loadYamlContent)
+            if common_config:
+                CURRENT_CONTEXT_CONFIG.setdefault(COMMON_CONFIG, common_config)
+
         elif propertiesLoadContent:
             aiModelConfig = AIModelConfigDTO.model_validate(propertiesLoadContent)
             if not aiModelConfig:
@@ -79,6 +85,10 @@ def loadProperties(filetype=".yaml"):
             if not pgdbConfig:
                 raise Exception("Postgresql config can't be null!")
             CURRENT_CONTEXT_CONFIG.setdefault(PG_DB_KEY, pgdbConfig)
+
+            common_config = CommonConfig.model_validate(propertiesLoadContent)
+            if common_config:
+                CURRENT_CONTEXT_CONFIG.setdefault(COMMON_CONFIG, common_config)
         else:
             raise Exception(f"Load config from file: {currentProfileName} is null, please check path or file is Correct!")
 
@@ -99,6 +109,10 @@ def getAiConfig() -> AIModelConfigDTO:
 
 def getServerConfig() -> ServerConfigDTO:
     return CURRENT_CONTEXT_CONFIG.get(SERVER_KEY)
+
+
+def getCommonConfig() -> CommonConfig:
+    return CURRENT_CONTEXT_CONFIG.get(COMMON_CONFIG)
 
 
 

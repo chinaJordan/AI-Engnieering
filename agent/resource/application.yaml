@@ -14,11 +14,11 @@ ai:
     # 模型名字，必传
     name: deepseek-chat
     # 模型使用的访问token 必传, 如果不在这里配置，可以通过环境变量配置，配置方式：变量名： type名字 + "_API_KEY", 建议 type 名字大写
-    apikey: sk-24354dfsfd7837487387fdh
+    apikey: sk-642839b326e34ba19a8149815e9ec60b
     # 模型访问地址，当模型不是用deepsee， 必传
     url: https://api.deepseek.com
     # 模型的测试地址， 选传，如果用到 beta功能再传
-    beta_url: https://api.deepseek.com/beta
+    beta_url: /beta
 
 #  - type: deepseek    # 模型provider 名字， 必传
 #    # 模型名字，必传
@@ -28,7 +28,7 @@ ai:
 #    # 模型访问地址，当模型不是用deepsee， 必传
 #    url: https://api.deepseek.com
 #    # 模型的测试地址， 选传，如果用到 beta功能再传
-#    beta_url: https://api.deepseek.com/beta
+#    beta_url: /beta
 
 postgresql:
   # 必传

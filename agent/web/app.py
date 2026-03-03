@@ -3,7 +3,9 @@ from datetime import timedelta
 from flask import Flask, url_for, request,redirect,session
 from agent.web.Login import login_bp
 from agent.web.ChatServer import chat_bp
-from agent.util import  log
+from agent.util import log, putValue
+from agent.config.constant import ConfigConstantKey
+
 
 all_bluprints = [login_bp, chat_bp]
 app = Flask(__name__)
@@ -61,13 +63,16 @@ def check_login_status():
 
     # print(f"Current seesion: {session.get('username')}")
     # 3. ✅ 校验登录态：未登录 → 跳转到登录页
-    if not session.get("username"):
+    if not session.get(ConfigConstantKey.USERNAME):
         return redirect(url_for("login.login", next=current_path))
 
     #  下面这两个参数，控制动态更新session 的过期时间，session.permanent == True , 表示让
     #  permanent_session_lifetime 参数生效， session.modified == True, 表示让浏览器更新当前会话过期时间
     session.permanent = True
     session.modified = True
+
+    # 登录成功后，将session 中用户ID 存储到上下文信息中
+    putValue(ConfigConstantKey.USER_ID, session.get(ConfigConstantKey.USER_ID))
 
     # 4. 已登录 → 放行，执行原视图函数
     return None
@@ -90,6 +95,6 @@ print("=== 当前已注册的路由端点 ===")
 for rule in app.url_map.iter_rules():
     log.info(f"端点名：{rule.endpoint} → 路由地址：{rule.rule}")
 if __name__ == "__main__":
-    app.run(port=5000, host="0.0.0.0")
+    app.run(port=8000, host="0.0.0.0")
 
 
